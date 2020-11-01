@@ -10,25 +10,20 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      unique: true,
       required: true,
-      lowercase: true,
-      validate: {
-        validator: function (email) {
-          return /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]/.test(email);
-        },
-      },
+      unique: true,
+      match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
     },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Thought",
+        ref: "Thoughts",
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: "Users",
       },
     ],
   },
@@ -45,6 +40,6 @@ UserSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
 
-const User = model("User", UserSchema);
+const Users = model("Users", UserSchema);
 
-module.exports = User;
+module.exports = Users;
