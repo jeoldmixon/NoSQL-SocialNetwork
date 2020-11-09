@@ -6,6 +6,8 @@ API for social networking. Users can share thoughts and add friends to their lis
 
 ## Walkthrough Video Link:
 
+https://drive.google.com/file/d/1YeeqcP63ITzNgIeAxcRAkCa5AvssRJp4/view
+
 ## Repo
 
 Download the application from the GitHub repository:
